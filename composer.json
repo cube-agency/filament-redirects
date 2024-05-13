@@ -5,7 +5,6 @@
         "CubeAgency",
         "laravel",
         "filament",
-        "translations",
         "filament-redirects"
     ],
     "homepage": "https://github.com/cube-agency/filament-redirects",

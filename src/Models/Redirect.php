@@ -2,17 +2,13 @@
 
 namespace CubeAgency\FilamentRedirects\Models;
 
+use CubeAgency\FilamentRedirects\Enums\RedirectStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Redirect extends Model
 {
     use HasFactory;
-
-    public static array $statusOptions = [
-        301 => 'Permanent',
-        302 => 'Temporary',
-    ];
 
     public function __construct(array $attributes = [])
     {
@@ -29,6 +25,6 @@ class Redirect extends Model
 
     public function getStatusLabelAttribute(): ?string
     {
-        return self::$statusOptions[$this->status] ?? null;
+        return RedirectStatus::asSelectArray()[$this->status] ?? null;
     }
 }

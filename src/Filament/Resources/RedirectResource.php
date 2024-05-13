@@ -2,6 +2,7 @@
 
 namespace CubeAgency\FilamentRedirects\Filament\Resources;
 
+use CubeAgency\FilamentRedirects\Enums\RedirectStatus;
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\EditRedirect;
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\CreateRedirect;
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\ListRedirects;
@@ -21,7 +22,6 @@ class RedirectResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'from_url';
 
-
     public static function form(Form $form): Form
     {
         return $form
@@ -29,8 +29,8 @@ class RedirectResource extends Resource
                 TextInput::make('from_url')->rules('required'),
                 TextInput::make('to_url')->rules('required'),
                 Select::make('status')
-                    ->options(Redirect::$statusOptions)
-                    ->default(301),
+                    ->options(RedirectStatus::asSelectArray())
+                    ->default(RedirectStatus::PERMANENT->value)
             ]);
     }
 

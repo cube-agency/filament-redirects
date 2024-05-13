@@ -22,6 +22,8 @@ class FilamentRedirectsServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../database/migrations'))) {
             $package->hasMigrations($this->getMigrations());
         }
+
+        $package->hasTranslations();
     }
 
     public function packageRegistered(): void
