@@ -15,7 +15,13 @@ You can install the package via composer:
 composer require cube-agency/filament-redirects
 ```
 
-Run migrations:
+Run install command:
+
+```bash
+php artisan filament-redirects:install
+```
+
+Run migrations (if that was not done on install):
 
 ```bash
 php artisan migrate

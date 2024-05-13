@@ -2,6 +2,7 @@
 
 namespace CubeAgency\FilamentRedirects;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -11,7 +12,13 @@ class FilamentRedirectsServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name(static::$name);
+        $package->name(static::$name)
+            ->hasTranslations()
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->publishMigrations()
+                    ->askToRunMigrations();
+            });
 
         $configFileName = $package->shortName();
 
@@ -22,8 +29,6 @@ class FilamentRedirectsServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../database/migrations'))) {
             $package->hasMigrations($this->getMigrations());
         }
-
-        $package->hasTranslations();
     }
 
     public function packageRegistered(): void
