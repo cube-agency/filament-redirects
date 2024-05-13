@@ -3,8 +3,8 @@
 namespace CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages;
 
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Actions;
+use Filament\Resources\Pages\ListRecords;
 
 class ListRedirects extends ListRecords
 {

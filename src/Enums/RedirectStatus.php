@@ -14,7 +14,7 @@ enum RedirectStatus: int
 
         foreach ($reflector->getCases() as $case) {
             $value = $case->getBackingValue();
-            $array[$value] = __('filament-redirects::redirects.status.' . $value);
+            $array[$value] = __('filament-redirects::redirects.status.'.$value);
         }
 
         return $array;

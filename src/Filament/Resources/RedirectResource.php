@@ -3,8 +3,8 @@
 namespace CubeAgency\FilamentRedirects\Filament\Resources;
 
 use CubeAgency\FilamentRedirects\Enums\RedirectStatus;
-use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\EditRedirect;
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\CreateRedirect;
+use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\EditRedirect;
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages\ListRedirects;
 use CubeAgency\FilamentRedirects\Models\Redirect;
 use Filament\Forms\Components\Select;
@@ -30,7 +30,7 @@ class RedirectResource extends Resource
                 TextInput::make('to_url')->rules('required'),
                 Select::make('status')
                     ->options(RedirectStatus::asSelectArray())
-                    ->default(RedirectStatus::PERMANENT->value)
+                    ->default(RedirectStatus::PERMANENT->value),
             ]);
     }
 

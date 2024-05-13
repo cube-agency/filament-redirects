@@ -17,7 +17,7 @@ class FilamentRedirectsPlugin implements Plugin
     {
         $panel
             ->resources([
-                RedirectResource::class
+                RedirectResource::class,
             ]);
     }
 

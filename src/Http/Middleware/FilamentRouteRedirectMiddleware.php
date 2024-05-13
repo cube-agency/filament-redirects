@@ -19,7 +19,7 @@ class FilamentRouteRedirectMiddleware
         $redirect = Redirect::query();
 
         $redirect->whereIn('from_url', [$request->url(), $request->path()]);
-        $redirect->orWhere('from_url', 'LIKE', '_' . $request->path() . '_');
+        $redirect->orWhere('from_url', 'LIKE', '_'.$request->path().'_');
 
         $redirect = $redirect->first(['to_url', 'status']);
 
