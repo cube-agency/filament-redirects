@@ -30,7 +30,7 @@ class RedirectResource extends Resource
                 TextInput::make('to_url')->rules('required'),
                 Select::make('status')
                     ->options(RedirectStatus::asSelectArray())
-                    ->default(RedirectStatus::PERMANENT->value),
+                    ->default(RedirectStatus::TEMPORARY->value),
             ]);
     }
 

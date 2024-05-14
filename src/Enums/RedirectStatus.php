@@ -4,8 +4,8 @@ namespace CubeAgency\FilamentRedirects\Enums;
 
 enum RedirectStatus: int
 {
-    case PERMANENT = 301;
     case TEMPORARY = 302;
+    case PERMANENT = 301;
 
     public static function asSelectArray(): array
     {
