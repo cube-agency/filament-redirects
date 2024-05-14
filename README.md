@@ -74,7 +74,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Dmitrijs Mihailovs](https://github.com/cube-agency)
+- [Kristaps Bajazitovs](https://github.com/cube-agency)
 - [All Contributors](../../contributors)
 
 ## License
