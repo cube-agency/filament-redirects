@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->id();
 
             $table->text('from_url')->index();
-            $table->text('to_url')->index();
-            $table->integer('status')->default(301)->index();
+            $table->text('to_url');
+            $table->integer('status')->default(301);
 
             $table->timestamps();
         });
