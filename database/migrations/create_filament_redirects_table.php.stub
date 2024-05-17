@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create(config('filament-redirects.table_name'), function (Blueprint $table) {
             $table->id();
 
-            $table->text('from_url')->index();
+            $table->text('from_url');
             $table->text('to_url');
             $table->integer('status')->default(301);
 
