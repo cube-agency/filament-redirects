@@ -1,19 +1,19 @@
 <?php
 
-namespace CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource\Pages;
+namespace CubeAgency\FilamentRedirects\Filament\Resources\Redirects\Pages;
 
 use CubeAgency\FilamentRedirects\Filament\Resources\RedirectResource;
-use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Actions\CreateAction;
+use Filament\Resources\Pages\ListRecords;
 
-class EditRedirect extends EditRecord
+class ListRedirects extends ListRecords
 {
     protected static string $resource = RedirectResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            CreateAction::make(),
         ];
     }
 }
