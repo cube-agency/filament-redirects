@@ -13,6 +13,7 @@ Adds redirect management functionality
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
@@ -59,12 +60,6 @@ return Application::configure(...)
         $middleware->append(FilamentRouteRedirectMiddleware::class);
     })
     ...
-```
-
-## Testing
-
-```bash
-composer test
 ```
 
 ## Changelog
