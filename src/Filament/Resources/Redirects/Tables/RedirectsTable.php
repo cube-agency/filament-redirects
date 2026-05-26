@@ -16,8 +16,8 @@ class RedirectsTable
     {
         return $table
             ->columns([
-                TextColumn::make('from_url'),
-                TextColumn::make('to_url'),
+                TextColumn::make('from_url')->searchable(),
+                TextColumn::make('to_url')->searchable(),
                 TextColumn::make('status_label')->label('Status'),
             ])
             ->filters([
