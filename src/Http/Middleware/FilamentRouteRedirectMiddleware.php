@@ -12,16 +12,22 @@ class FilamentRouteRedirectMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $redirect = Redirect::query();
+        $path = $request->path();
+        $trimmed = trim($path, '/');
 
-        $redirect->whereIn('from_url', [$request->url(), $request->path()]);
-        $redirect->orWhere('from_url', 'LIKE', '_'.$request->path().'_');
+        // Match `from_url` exactly against the full URL or the request path
+        $candidates = array_unique(array_merge(
+            [$request->url(), $path],
+            $trimmed === '' ? [] : ['/' . $trimmed, $trimmed . '/', '/' . $trimmed . '/'],
+        ));
 
-        $redirect = $redirect->first(['to_url', 'status']);
+        $redirect = Redirect::query()
+            ->whereIn('from_url', $candidates)
+            ->first(['to_url', 'status']);
 
         if ($redirect) {
             return redirect($redirect->to_url, $redirect->status);
